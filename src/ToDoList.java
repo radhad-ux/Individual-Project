@@ -23,7 +23,7 @@ public class ToDoList {
 
             if(choice == 1)
             {
-                System.out.println("Correct Choice");
+                System.out.println("Wrong Choice");
                 displayTask();
             }
             /*
