@@ -32,7 +32,7 @@ public class ToDoList {
             System.out.println("Please pick your option: ");
             System.out.println("1)  Show all the tasks by projectName");
             System.out.println("2)  Show all the tasks by due date");
-            System.out.println("3)  Go Back to the main menu");
+            System.out.println("3)  Go back to the main menu");
             System.out.println("*********************************************");
 
             Scanner input = new Scanner(System.in);
@@ -73,7 +73,7 @@ public class ToDoList {
         Task newTask = new Task(title, projectName, dueDate);
         taskList.add(newTask);
     }
-    // This method helps to edit a task
+    // This method helps to edit a task(Update,Mark as done, delete)
 
     public void editTask() {
         //Task task = taskList.get(0);
@@ -81,8 +81,41 @@ public class ToDoList {
 
         while (option != 4) {
             System.out.println("************************************* ");
+            System.out.println("Please pick your option to edit: \n");
+            System.out.println("1)  Update a existing task");
+            System.out.println("2)  Mark a task completed");
+            System.out.println("3)  Delete a task");
+            System.out.println("4)  Go back to the main menu");
+            System.out.println("************************************* ");
+            Scanner input = new Scanner(System.in);
+            option = input.nextInt();
+            switch (option) {
+                case 1:
+                    updateTask();
+                    break;
+                case 2:
+                    markTaskAsDone();
+                    break;
+                case 3:
+                    deleteTask();
+                    break;
+                default:
+                    System.out.println("Not a valid input!");
+                    break;
+            }
 
         }
     }
+    // This method update's an existing tasks details
+     public void updateTask(){
+
+     }
+     public void markTaskAsDone(){
+
+     }
+     public void deleteTask(){
+
+     }
+
 }
 
