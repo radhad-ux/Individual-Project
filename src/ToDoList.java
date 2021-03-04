@@ -110,9 +110,9 @@ public class ToDoList {
      public void updateTask(){
         System.out.println("Choose a task no to update");
         showExistingTasks();
-        int index = 0;
-        Scanner input = new Scanner(System.in);
-        index = input.nextInt();
+         Scanner input = new Scanner(System.in);
+         int index = input.nextInt( );
+
 
 
      }
