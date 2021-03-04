@@ -23,8 +23,36 @@ public class ToDoList {
         }
         return count;
     }
+     // Method to display the main menu
+    public void displayMainMenu() {
+        int choice = 0;
+        boolean endTask = false;
+        Scanner input = new Scanner(System.in);
+        System.out.println("    Hello! Welcome to your To do List      ");
+        System.out.println("-------------------------------------------");
+        System.out.println("     1- Display List      ");
+        System.out.println("     2- Add New Task      ");
+        System.out.println("     3- Edit Task         ");
+        System.out.println("     4- Delete Task       ");
+        System.out.println("     5- Update & Exit     ");
+        System.out.println("-------------------------------------------");
+        System.out.println(" Enter correct option");
+        choice = input.nextInt( );
+        while (!(endTask)) {
 
-    //
+            if (choice == 1) {
+                displayTask( );
+            }
+            if (choice == 2) {
+                addTask( );
+            }
+            if (choice == 3)
+                editTask( );
+            if (choice == 4)
+                saveAndExitTask( );
+        }
+    }
+         // Method to display task by projectName or Due date
     public void displayTask() {
         int option = 0;
         while (option != 3) {
@@ -88,16 +116,16 @@ public class ToDoList {
             System.out.println("4)  Go back to the main menu");
             System.out.println("************************************* ");
             Scanner input = new Scanner(System.in);
-            option = input.nextInt();
+            option = input.nextInt( );
             switch (option) {
                 case 1:
-                    updateTask();
+                    updateTask( );
                     break;
                 case 2:
-                    markTaskAsDone();
+                    markTaskAsDone( );
                     break;
                 case 3:
-                    deleteTask();
+                    deleteTask( );
                     break;
                 default:
                     System.out.println("Not a valid input!");
@@ -106,26 +134,32 @@ public class ToDoList {
 
         }
     }
+
     // This method update's an existing tasks details
-     public void updateTask(){
+    public void updateTask() {
         System.out.println("Choose a task no to update");
-        showExistingTasks();
-         Scanner input = new Scanner(System.in);
-         int index = input.nextInt( );
+        showExistingTasks( );
+        Scanner input = new Scanner(System.in);
+        int index = input.nextInt( );
 
 
-
-     }
-
+    }
 
 
-    public void markTaskAsDone(){
+    public void markTaskAsDone() {
 
-     }
-     public void deleteTask(){
+    }
 
-     }
+    public void deleteTask() {
+
+    }
+
     private void showExistingTasks() {
     }
+
+    private void saveAndExitTask() {
+    }
+
 }
+
 
