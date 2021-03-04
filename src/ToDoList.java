@@ -108,14 +108,24 @@ public class ToDoList {
     }
     // This method update's an existing tasks details
      public void updateTask(){
+        System.out.println("Choose a task no to update");
+        showExistingTasks();
+        int index = 0;
+        Scanner input = new Scanner(System.in);
+        index = input.nextInt();
+
 
      }
-     public void markTaskAsDone(){
+
+
+
+    public void markTaskAsDone(){
 
      }
      public void deleteTask(){
 
      }
-
+    private void showExistingTasks() {
+    }
 }
 
