@@ -1,7 +1,7 @@
-import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class ToDoList {
     private ArrayList<Task> taskList;
@@ -79,11 +79,22 @@ public class ToDoList {
             }
         }
     }
+     /** Display task by Project Name */
 
     public void showTaskByProjectName() {
+        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        taskList.stream( )
+                .sorted((t1, t2) -> t1.getProjectName( ).compareToIgnoreCase(t2.getProjectName( )))
+                        .forEach(System.out::println);
     }
 
+    /** Display task by Due Date */
+
     public void showTaskByDueDate() {
+        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        taskList.stream( )
+                .sorted((t1, t2) -> t1.getDueDate( ).compareTo(t2.getDueDate( )))
+                .forEach(System.out::println);
     }
 
 
@@ -155,9 +166,13 @@ public class ToDoList {
     }
 
     private void showExistingTasks() {
+        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        for(int i = 0; i < taskList.size(); i++)
+            System.out.println((i+1) + "\t\t\t" + taskList.get(i).toString());
     }
 
     private void saveAndExitTask() {
+
     }
 
 }
