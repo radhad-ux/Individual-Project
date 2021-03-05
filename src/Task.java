@@ -39,19 +39,14 @@ public class Task implements Serializable
         this.projectName = projectName;
     }
 
-    public boolean isComplete() {
+    public boolean isTaskDone() {
 
-        return this.complete;
+        return complete;
     }
 
-    public boolean markInComplete() {
-        this.complete= false;
-        return this.complete;
-    }
+    public void setIsTaskDone(boolean complete){
+        this.complete = complete;
 
-    public boolean markAsComplete() {
-        this.complete = true;
-        return this.complete;
     }
 
     public LocalDate getDueDate() {
