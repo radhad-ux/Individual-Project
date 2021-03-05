@@ -166,7 +166,9 @@ public class ToDoList {
     }
 
     private void showExistingTasks() {
-
+        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        for(int i = 0; i < taskList.size(); i++)
+            System.out.println((i+1) + "\t\t\t" + taskList.get(i).toString());
     }
 
     private void saveAndExitTask() {
