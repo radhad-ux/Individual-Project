@@ -184,7 +184,18 @@ public class ToDoList {
 
 
     public void markTaskAsDone() {
+        System.out.println("Choose a task you want to mark as done\n ");
+        showExistingTasks();
+        Scanner input = new Scanner(System.in);
+        int index = input.nextInt();
+        if(index >0 && index <= taskList.size()) {
+            taskList.get(index - 1).setIsTaskDone(true);
+        }
+        else
+            System.out.println("No such Task Exists");
 
+        System.out.println("Task marked as done!");
+        showExistingTasks();
     }
 
     public void deleteTask() {
