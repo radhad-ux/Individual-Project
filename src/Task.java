@@ -10,6 +10,10 @@ public class Task implements Serializable
     private boolean complete;
     private LocalDate dueDate;
 
+    public Task(){
+
+    }
+
 
     public Task(String title, String projectName, LocalDate dueDate) {
         this.title = title;

@@ -171,7 +171,17 @@ public class ToDoList {
     }
 
     public void deleteTask() {
+        System.out.println("Choose a task to delete: \n");
+        showExistingTasks( );
+        Scanner input = new Scanner(System.in);
+        int index = input.nextInt( );
+        if (index > 0 && index <= taskList.size( )) {
+            taskList.remove(index - 1);
+        } else
+            System.out.println("No such Task to delete \n");
 
+        System.out.println("Task has been deleted Successfully");
+        showExistingTasks( );
     }
 
     private void showExistingTasks() {
@@ -184,7 +194,19 @@ public class ToDoList {
         System.out.println("");
 
     }
+    public void write(String fileName) {
 
+    }
+    public void load(String fileName){
+
+    }
+    public Task parseDataToTask(String line){
+        Task task = new Task();
+
+
+        return task;
+    }
 }
+
 
 
