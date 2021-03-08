@@ -1,7 +1,12 @@
+import java.io.*;
+//import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.Stream;
+
+import static java.lang.System.out;
 
 public class ToDoList {
     private ArrayList<Task> taskList;
@@ -30,12 +35,12 @@ public class ToDoList {
     public void displayTask() {
         int option = 0;
         while (option != 3) {
-            System.out.println("*********************************************");
-            System.out.println("Please pick your option: ");
-            System.out.println("1)  Show all the tasks by projectName");
-            System.out.println("2)  Show all the tasks by due date");
-            System.out.println("3)  Go back to the main menu");
-            System.out.println("*********************************************");
+            out.println("*********************************************");
+            out.println("Please pick your option: ");
+            out.println("1)  Show all the tasks by projectName");
+            out.println("2)  Show all the tasks by due date");
+            out.println("3)  Go back to the main menu");
+            out.println("*********************************************");
 
             Scanner input = new Scanner(System.in);
             option = input.nextInt( );
@@ -48,7 +53,7 @@ public class ToDoList {
                     break;
                 //case 3:
                 default:
-                    System.out.println("Not a valid input!");
+                    out.println("Not a valid input!");
                     break;
             }
         }
@@ -56,31 +61,31 @@ public class ToDoList {
      /** Display task by Project Name */
 
     public void showTaskByProjectName() {
-        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
         taskList.stream( )
                 .sorted((t1, t2) -> t1.getProjectName( ).compareToIgnoreCase(t2.getProjectName( )))
-                        .forEach(System.out::println);
+                        .forEach(out::println);
     }
 
     /** Display task by Due Date */
 
     public void showTaskByDueDate() {
-        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
         taskList.stream( )
                 .sorted((t1, t2) -> t1.getDueDate( ).compareTo(t2.getDueDate( )))
-                .forEach(System.out::println);
+                .forEach(out::println);
     }
 
     /** This method adds a new task to the taskList using the User input */
 
     public void addTask() {
-        System.out.println("Enter the new task to be added");
+        out.println("Enter the new task to be added");
         Scanner input = new Scanner(System.in);
-        System.out.println("The title of the task:\n ");
+        out.println("The title of the task:\n ");
         String title = input.nextLine( );
-        System.out.println("The name of the project:\n ");
+        out.println("The name of the project:\n ");
         String projectName = input.nextLine( );
-        System.out.println("Due date of the project in the format yyyy-MM-dd:\n ");
+        out.println("Due date of the project in the format yyyy-MM-dd:\n ");
         LocalDate dueDate = LocalDate.parse(input.nextLine( ));
         Task newTask = new Task(title, projectName, dueDate);
         taskList.add(newTask);
@@ -93,13 +98,13 @@ public class ToDoList {
         int option = 0;
 
         while (option != 4) {
-            System.out.println("************************************* ");
-            System.out.println("Please pick your option to edit: \n");
-            System.out.println("1)  Update a existing task");
-            System.out.println("2)  Mark a task completed");
-            System.out.println("3)  Delete a task");
-            System.out.println("4)  Go back to the main menu");
-            System.out.println("************************************* ");
+            out.println("************************************* ");
+            out.println("Please pick your option to edit: \n");
+            out.println("1)  Update a existing task");
+            out.println("2)  Mark a task completed");
+            out.println("3)  Delete a task");
+            out.println("4)  Go back to the main menu");
+            out.println("************************************* ");
             Scanner input = new Scanner(System.in);
             option = input.nextInt( );
             switch (option) {
@@ -113,7 +118,7 @@ public class ToDoList {
                     deleteTask( );
                     break;
                 default:
-                    System.out.println("Not a valid input!");
+                    out.println("Not a valid input!");
                     break;
             }
 
@@ -123,24 +128,24 @@ public class ToDoList {
     /** This method update's an existing tasks details */
 
     public void updateTask() {
-        System.out.println("Choose a task no to update");
+        out.println("Choose a task no to update");
         showExistingTasks( );
         Scanner input = new Scanner(System.in);
         int index = input.nextInt( );
         if(index > 0 && index <= taskList.size( )) {
-            System.out.println("Enter the title\n: ");
+            out.println("Enter the title\n: ");
             String title = input.nextLine( );
             taskList.get(index - 1).setTitle(title);
 
-            System.out.println("Enter the due date in the format yyyy-MM-dd:\n: ");
+            out.println("Enter the due date in the format yyyy-MM-dd:\n: ");
             LocalDate dueDate = LocalDate.parse(input.nextLine( ));
             taskList.get(index - 1).setDueDate(dueDate);
 
-            System.out.println("Enter the project name\n: ");
+            out.println("Enter the project name\n: ");
             String projectName = input.nextLine( );
             taskList.get(index - 1).setProjectName(projectName);
 
-            System.out.println("Enter the task status: Completed or Not Completed(ignore case)\n: ");
+            out.println("Enter the task status: Completed or Not Completed(ignore case)\n: ");
             String status = input.nextLine( );
 
             if (status.equalsIgnoreCase("Completed"))
@@ -148,15 +153,15 @@ public class ToDoList {
             else if (status.equalsIgnoreCase("Not Completed"))
                 taskList.get(index - 1).setIsTaskDone(false);
             else
-                System.out.println("Not an appropriate input");
+                out.println("Not an appropriate input");
         }
-            System.out.println("Task is updated Successfully \n");
+            out.println("Task is updated Successfully \n");
             showExistingTasks();
         }
 
 
     public void markTaskAsDone() {
-        System.out.println("Choose a task you want to mark as done\n ");
+        out.println("Choose a task you want to mark as done\n ");
         showExistingTasks();
         Scanner input = new Scanner(System.in);
         int index = input.nextInt();
@@ -164,42 +169,51 @@ public class ToDoList {
             taskList.get(index - 1).setIsTaskDone(true);
         }
         else
-            System.out.println("No such Task Exists");
+            out.println("No such Task Exists");
 
-        System.out.println("Task marked as done!");
+        out.println("Task marked as done!");
         showExistingTasks();
     }
 
     public void deleteTask() {
-        System.out.println("Choose a task to delete: \n");
+        out.println("Choose a task to delete: \n");
         showExistingTasks( );
         Scanner input = new Scanner(System.in);
         int index = input.nextInt( );
         if (index > 0 && index <= taskList.size( )) {
             taskList.remove(index - 1);
         } else
-            System.out.println("No such Task to delete \n");
+            out.println("No such Task to delete \n");
 
-        System.out.println("Task has been deleted Successfully");
+        out.println("Task has been deleted Successfully");
         showExistingTasks( );
     }
 
     private void showExistingTasks() {
-        System.out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
+        out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
         for(int i = 0; i < taskList.size(); i++)
-            System.out.println((i+1) + "\t\t\t" + taskList.get(i).toString());
+            out.println((i+1) + "\t\t\t" + taskList.get(i).toString());
     }
 
-    private void saveAndExitTask() {
-        System.out.println("");
-
+    public void saveTaskList(String fileName) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+        for(Task task: taskList){
+            bufferedWriter.write(task.toString());
+        }
+        bufferedWriter.close();
+        System.out.println("All changes are saved");
     }
-    public void write(String fileName) {
 
-    }
-    public void load(String fileName){
+    public void load(String fileName) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
+        String line = "";
+        while((line = bufferedReader.readLine( )) != null){
+            Task task = parseDataToTask(line);
+            taskList.add(task);
+        }
+        bufferedReader.close();
+        }
 
-    }
     public Task parseDataToTask(String line){
         Task task = new Task();
 

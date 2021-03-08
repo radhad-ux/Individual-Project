@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String fileName = "src/main/resources/toDoList.txt";
         ArrayList<Task> taskList = new ArrayList<>( );
         ToDoList toDoList = new ToDoList( );
