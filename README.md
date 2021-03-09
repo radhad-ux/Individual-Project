@@ -13,6 +13,8 @@ The program will allow user to Add, Edit, Remove, Display and Save the tasks.
 3. Edit task: It allows update, delete and mark the tasks completed.
 4. Save task and exit the application.
 
+User Manual
+
 
 ![ClassDiagramToDoList](./ScreenShots/ClassDiagramToDoList.png)
 
