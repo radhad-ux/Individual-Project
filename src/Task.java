@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 public class Task implements Serializable
 {
@@ -10,6 +10,10 @@ public class Task implements Serializable
     private boolean complete;
     private LocalDate dueDate;
 
+    public Task(){
+
+    }
+
 
     public Task(String title, String projectName, LocalDate dueDate) {
         this.title = title;
@@ -17,9 +21,7 @@ public class Task implements Serializable
         this.complete = false;
         this.dueDate = dueDate;
     }
-
-
-    public String getTitle() {
+    public String getTitle(String title) {
 
         return title;
     }
@@ -55,18 +57,17 @@ public class Task implements Serializable
     }
 
     public void setDueDate(LocalDate dueDate) {
-
-        this.dueDate = dueDate;
+        DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.dueDate = LocalDate.parse(dueDate.format(formattedDate));
     }
 
     @Override
     public String toString() {
-        if(isTaskDone() == true)
-            return ("\nTitle :" + title + "\nProjectName :" + projectName + "\nStatus :" + (complete ? "Completed" : "Not Completed") +
-                    "\nDue Date : " + dueDate + "\n");
-        else
-            return null;
+        if(isTaskDone())
+            return title + "\t" + dueDate + "\t" + projectName + "\t" + "Completed";
+        else return title + "\t" + dueDate + "\t" + projectName + "\t" + "Not Completed";
     }
+
 
 }
 
