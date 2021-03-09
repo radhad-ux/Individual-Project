@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     ToDoList toDoList;
-    String fileName = "src/main/resources/todolist.txt";
+    String fileName = "src/todolist.txt";
     private ArrayList<Task> taskList;
 
     public Main(ArrayList<Task> taskList, ToDoList toDoList) {
@@ -12,15 +12,15 @@ public class Main {
         this.toDoList = toDoList;
     }
 
-    public void displayMainMenu() {
+    public void displayMainMenu() throws IOException {
         int choice = 0;
         while (!(choice == 4)) {
             int numberOfTasksDone = toDoList.getNumberOfTasksDone( );
             System.out.println("-------------------------------------------");
             System.out.println("    Hello! Welcome to your To do List      ");
             System.out.println("-------------------------------------------");
-            System.out.println("You have" + (taskList.size( ) - numberOfTasksDone) + "to do and " +
-                    numberOfTasksDone + "tasks are done!");
+            System.out.println("You have  " + (taskList.size( ) - numberOfTasksDone)  +  "  to do and  " +
+                    numberOfTasksDone + "  tasks are done!");
             System.out.println("Pick an option to perform: ");
             System.out.println("     1) Display Task List (By project name or by due date)");
             System.out.println("     2) Add New Task");
@@ -39,10 +39,10 @@ public class Main {
                     toDoList.addTask( );
                     break;
                 case 3:
-                    toDoList.updateTask( );
+                    toDoList.editTask( );
                     break;
                 case 4:
-                    toDoList.write(fileName);
+                    toDoList.saveTaskList(fileName);
                     System.out.println("Good Bye!");
                     break;
 
@@ -55,9 +55,9 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        String fileName = "src/main/resources/toDoList.txt";
+        String fileName = "src/todolist.txt";
         ArrayList<Task> taskList = new ArrayList<>( );
-        ToDoList toDoList = new ToDoList( );
+        ToDoList toDoList = new ToDoList(taskList);
         toDoList.load(fileName);
 
         Main main = new Main(taskList, toDoList);
