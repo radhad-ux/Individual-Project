@@ -22,27 +22,17 @@ task has been completed and which tasks are yet to be done.
 >> All the changes are saved in the list if user wishes to do so.
 
 # Tools
-IntelliJ IDEA
-VS code
-Eclipse
+IntelliJ IDEA,  VS code  Eclipse
 
 #User Manual
+
 This provides a brief introduction on how to use the program. 
 The project was build using Java Programming Language on IntelliJ IDEA. It has simple GUI where the user inputs certain 
 tasks. The program can be runned in IntelliJ terminal.
 The application uses Gradle, an open source build automation tool. 
 
 The main menu of the application when you run the program looks as below:
--------------------------------------------
-    Hello! Welcome to your To do List      
--------------------------------------------
-You have  1  to do and  0  tasks are done!
-Pick an option to perform:
-1) Display Task List (By project name or by due date)
-2) Add New Task
-3) Edit Task (update, mark task as done, delete
-4) Save and Exit
--------------------------------------------
+![ToDoList-img2](ScreenShots/ToDoList-img2.png)
 
 
 ![ClassDiagramToDoList](ScreenShots/ClassDiagramToDoList.png)
