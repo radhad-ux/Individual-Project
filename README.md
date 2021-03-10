@@ -24,18 +24,21 @@ task has been completed and which tasks are yet to be done.
 # Tools
 IntelliJ IDEA,  VS code  Eclipse
 
-#User Manual
-
-This provides a brief introduction on how to use the program. 
-The project was build using Java Programming Language on IntelliJ IDEA. It has simple GUI where the user inputs certain 
-tasks. The program can be runned in IntelliJ terminal.
-The application uses Gradle, an open source build automation tool. 
-
-The main menu of the application when you run the program looks as below:
-![ToDoList-img2](ScreenShots/ToDoList-img2.png)
-
+# Class Diagram
 
 ![ClassDiagramToDoList](ScreenShots/ClassDiagramToDoList.png)
+
+
+#User Manual
+
+This provides a brief introduction on how to use the program.
+The project was build using Java Programming Language on IntelliJ IDEA. It has simple GUI where the user inputs certain
+tasks. The program can be runned in IntelliJ terminal.
+The application uses Gradle, an open source build automation tool.
+
+The main menu of the application when you run the program looks as below:
+
+![ToDoList-img3](ScreenShots/ToDoList-img3.png)
 
 
 
