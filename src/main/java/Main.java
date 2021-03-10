@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     ToDoList toDoList;
-    String fileName = "src/todolist.txt";
+    String fileName = "src/main/resources/todolist.txt";
     private ArrayList<Task> taskList;
 
     public Main(ArrayList<Task> taskList, ToDoList toDoList) {
@@ -55,7 +55,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        String fileName = "src/todolist.txt";
+        String fileName = "src/main/resources/todolist.txt"; //todo refactor this to have it once
         ArrayList<Task> taskList = new ArrayList<>( );
         ToDoList toDoList = new ToDoList(taskList);
         toDoList.load(fileName);

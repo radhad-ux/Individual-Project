@@ -190,7 +190,7 @@ public class ToDoList {
     }
 
     public void saveTaskList(String fileName) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File (fileName)));
         for(Task task: taskList){
             bufferedWriter.write(task.toString());
         }
@@ -199,6 +199,7 @@ public class ToDoList {
     }
 
     public void load(String fileName) throws IOException {
+
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
         //String line = "";
         while((bufferedReader.readLine( )) != null){
