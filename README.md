@@ -32,7 +32,9 @@ tasks. The program can be runned in IntelliJ terminal.
 The application uses Gradle, an open source build automation tool. 
 
 The main menu of the application when you run the program looks as below:
-![ToDoList-img2](ScreenShots/ToDoList-img2.png)
+
+![ToDoList-img3](ScreenShots/ToDoList-img3.png)
+
 
 
 ![ClassDiagramToDoList](ScreenShots/ClassDiagramToDoList.png)
