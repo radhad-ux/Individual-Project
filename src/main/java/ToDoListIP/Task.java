@@ -1,4 +1,7 @@
+package ToDoListIP;
+
 import java.io.Serializable;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -10,20 +13,12 @@ public class Task implements Serializable
     private boolean complete;
     private LocalDate dueDate;
 
-    public Task(){
 
-    }
-
-
-    public Task(String title, String projectName, LocalDate dueDate) {
+    public Task(String title, LocalDate dueDate, String projectName) {
         this.title = title;
         this.projectName = projectName;
         this.complete = false;
         this.dueDate = dueDate;
-    }
-    public String getTitle(String title) {
-
-        return title;
     }
 
     public void setTitle(String title) {
@@ -56,18 +51,20 @@ public class Task implements Serializable
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(LocalDate dueDate) throws DateTimeException {
+        if(dueDate.compareTo(LocalDate.now())<0){
+            throw new DateTimeException("Past date is not allowed");
+        }
         DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.dueDate = LocalDate.parse(dueDate.format(formattedDate));
     }
 
     @Override
     public String toString() {
-        if(isTaskDone())
-            return title + "\t" + dueDate + "\t" + projectName + "\t" + "Completed";
-        else return title + "\t" + dueDate + "\t" + projectName + "\t" + "Not Completed";
+        if(isTaskDone() == true)
+            return "\t" +title + "\t\t" + dueDate + "\t\t" + projectName + "\t\t\t" + "Completed";
+        else return "\t" +title + "\t\t" + dueDate + "\t\t" + projectName + "\t\t" + "Not Completed";
     }
-
 
 }
 
