@@ -1,3 +1,5 @@
+package ToDoListIP;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,21 +7,23 @@ import java.util.Scanner;
 public class Main {
     ToDoList toDoList;
     String fileName = "src/main/resources/todolist.txt";
-    private ArrayList<Task> taskList;
+      ArrayList<Task> taskList;
+      FileHandler fileHandler;
 
-    public Main(ArrayList<Task> taskList, ToDoList toDoList) {
+    public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler) {
         this.taskList = taskList;
         this.toDoList = toDoList;
+        this.fileHandler = fileHandler;
     }
 
     public void displayMainMenu() throws IOException {
         int choice = 0;
-        while (!(choice == 4)) {
+        while (choice != 4) {
             int numberOfTasksDone = toDoList.getNumberOfTasksDone( );
             System.out.println("------------------------------------------------------------");
             System.out.println("          Hello! Welcome to your To do List      ");
             System.out.println("------------------------------------------------------------");
-            System.out.println("You have  " + (taskList.size( ) - numberOfTasksDone)  +  "  to do and  " +
+            System.out.println("You have  " + (taskList.size( ) - numberOfTasksDone)  +  " task to do and  " +
                     numberOfTasksDone + "  tasks are done!");
             System.out.println("Pick an option to perform: ");
             System.out.println("     1) Display Task List (By project name or by due date)\n");
@@ -42,7 +46,8 @@ public class Main {
                     toDoList.editTask( );
                     break;
                 case 4:
-                    toDoList.saveTaskList(fileName);
+                    //toDoList.saveTaskList(fileName);
+                    fileHandler.saveTaskList(fileName, taskList);
                     System.out.println("Good Bye!");
                     break;
 
@@ -54,13 +59,13 @@ public class Main {
         }
     }
 
+
     public static void main(String[] args) throws IOException {
         String fileName = "src/main/resources/todolist.txt"; //todo refactor this to have it once
         ArrayList<Task> taskList = new ArrayList<>( );
         ToDoList toDoList = new ToDoList(taskList);
-        toDoList.load(fileName);
-
-        Main main = new Main(taskList, toDoList);
+        FileHandler fileHandler = new FileHandler();
+        Main main = new Main(taskList, toDoList, fileHandler);
         main.displayMainMenu( );
     }
 }
