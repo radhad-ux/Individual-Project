@@ -9,11 +9,13 @@ public class Main {
     String fileName = "src/main/resources/todolist.txt";
       ArrayList<Task> taskList;
       FileHandler fileHandler;
+      //UserInterface userInterface;
 
     public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler) {
         this.taskList = taskList;
         this.toDoList = toDoList;
         this.fileHandler = fileHandler;
+        //this.userInterface = userInterface;
     }
 
     public void displayMainMenu() throws IOException {
@@ -58,13 +60,16 @@ public class Main {
             }
         }
     }
-
-
     public static void main(String[] args) throws IOException {
-        String fileName = "src/main/resources/todolist.txt"; //todo refactor this to have it once
+        String fileName = "src/main/resources/todolist.txt";  //todo refactor this to have it once
         ArrayList<Task> taskList = new ArrayList<>( );
         ToDoList toDoList = new ToDoList(taskList);
         FileHandler fileHandler = new FileHandler();
+        taskList = fileHandler.load(fileName);
+        toDoList.setListItems(taskList);
+        System.out.println("After loading file");
+        for(int i = 0; i < taskList.size(); i++)
+            System.out.println("Project name of task" + i + "=" + taskList.get(i).getProjectName());
         Main main = new Main(taskList, toDoList, fileHandler);
         main.displayMainMenu( );
     }
