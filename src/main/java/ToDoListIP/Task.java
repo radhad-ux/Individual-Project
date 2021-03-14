@@ -62,8 +62,8 @@ public class Task implements Serializable
     @Override
     public String toString() {
         if(isTaskDone() == true)
-            return "\t" +title + "\t\t" + dueDate + "\t\t" + projectName + "\t\t\t" + "Completed";
-        else return "\t" +title + "\t\t" + dueDate + "\t\t" + projectName + "\t\t" + "Not Completed";
+            return  title + "\t\t" + dueDate + "\t\t" + projectName + "\t\t\t" + "Completed";
+        else return title + "\t\t" + dueDate + "\t\t" + projectName + "\t\t" + "Not Completed";
     }
 
 }

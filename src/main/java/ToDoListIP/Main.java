@@ -9,13 +9,13 @@ public class Main {
     String fileName = "src/main/resources/todolist.txt";
       ArrayList<Task> taskList;
       FileHandler fileHandler;
-      //UserInterface userInterface;
+      UpdateTask updateTask;
 
-    public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler) {
+    public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler, UpdateTask updateTask) {
         this.taskList = taskList;
         this.toDoList = toDoList;
         this.fileHandler = fileHandler;
-        //this.userInterface = userInterface;
+        this.updateTask = updateTask;
     }
 
     public void displayMainMenu() throws IOException {
@@ -45,7 +45,7 @@ public class Main {
                     toDoList.addTask( );
                     break;
                 case 3:
-                    toDoList.editTask( );
+                    updateTask.editTask( );
                     break;
                 case 4:
                     //toDoList.saveTaskList(fileName);
@@ -67,10 +67,8 @@ public class Main {
         FileHandler fileHandler = new FileHandler();
         taskList = fileHandler.load(fileName);
         toDoList.setListItems(taskList);
-        System.out.println("After loading file");
-        for(int i = 0; i < taskList.size(); i++)
-            System.out.println("Project name of task" + i + "=" + taskList.get(i).getProjectName());
-        Main main = new Main(taskList, toDoList, fileHandler);
+        UpdateTask updateTask = new UpdateTask(taskList, toDoList);
+        Main main = new Main(taskList, toDoList, fileHandler, updateTask);
         main.displayMainMenu( );
     }
 }

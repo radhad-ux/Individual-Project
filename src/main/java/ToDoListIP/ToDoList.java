@@ -3,6 +3,7 @@ package ToDoListIP;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import static java.lang.System.out;
 
 
@@ -17,8 +18,9 @@ public class ToDoList {
 
         this.taskList1 = taskList;
     }
+
     // Method to return the number of tasks done
-    public void setListItems(ArrayList<Task> taskList){
+    public void setListItems(ArrayList<Task> taskList) {
         this.taskList1 = taskList;
     }
 
@@ -68,7 +70,7 @@ public class ToDoList {
      */
 
     public void displayTaskByProjectName() { // todo ask nour about stay here (change it easier to test)
-        out.println("Task title\tDue date\tProject name\tTask status");
+        out.println("Task title\t\tDue date\t\tProject name\t\tTask status");
         taskList1.stream( )
                 .sorted((t1, t2) -> t1.getProjectName( ).compareToIgnoreCase(t2.getProjectName( )))
                 .forEach(out::println);
@@ -79,7 +81,7 @@ public class ToDoList {
      */
 
     public void displayTaskByDueDate() {
-        out.println("Task title\tDue date\t Project name\t Task status");
+        out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
         taskList1.stream( )
                 .sorted((t1, t2) -> t1.getDueDate( ).compareTo(t2.getDueDate( )))
                 .forEach(out::println);
@@ -112,113 +114,8 @@ public class ToDoList {
      * This method helps to edit a task(Update,Mark as done, delete)
      */
 
-    public void editTask() { // in ui
-        int choice = 0;
 
-        while (choice != 4) {
-            out.println("************************************* ");
-            out.println("Please pick your option to edit: \n");
-            out.println("1)  Update a existing task");
-            out.println("2)  Mark a task completed");
-            out.println("3)  Delete a task");
-            out.println("4)  Go back to the main menu");
-            out.println("************************************* ");
-            Scanner input = new Scanner(System.in);
-            choice = Integer.parseInt(input.nextLine( ));
-            switch (choice) {
-                case 1:
-                    updateTask( );
-                    break;
-                case 2:
-                    markTaskAsDone( );
-                    break;
-                case 3:
-                    deleteTask( );
-                    break;
-                case 4:
-                    break;
-                default:
-                    out.println("Not a valid input!");
-                    break;
-            }
-
-        }
-    }
-
-    /**
-     * This method update's an existing tasks details
-     */
-
-    public void updateTask() {
-        out.println("Choose a task no to update\n");
-        showExistingTasks( );
-        Scanner input = new Scanner(System.in);
-        int index = 0;
-        index = Integer.parseInt(input.nextLine( ));
-
-        if (index > 0 && index <= taskList1.size( )) {
-            out.println("Enter the title:\n");
-            String title = input.nextLine( );
-            taskList1.get(index - 1).setTitle(title);
-
-            out.println("Enter the due date in the format yyyy-MM-dd:\n: ");
-            String dueDate = input.nextLine( );
-            taskList1.get(index - 1).setDueDate(LocalDate.parse(dueDate));
-            //LocalDate dueDate = LocalDate.parse(input.nextLine( ));
-            //taskList.get(index - 1).setDueDate(dueDate);
-
-            out.println("Enter the project name\n: ");
-            String projectName = input.nextLine( );
-            taskList1.get(index - 1).setProjectName(projectName);
-
-            out.println("Enter the task status: Completed or Not Completed(ignore case)\n: ");
-            String status = input.nextLine( );
-
-            if (status.equalsIgnoreCase("Completed"))
-                taskList1.get(index - 1).setIsTaskDone(true);
-            else if (status.equalsIgnoreCase("Not Completed"))
-                taskList1.get(index - 1).setIsTaskDone(false);
-            else
-                out.println("Not an appropriate input");
-        }
-        out.println("Task is updated Successfully \n");
-        showExistingTasks( );
-    }
-
-    public void markTaskAsDone() {
-        out.println("Choose a task you want to mark as done\n ");
-        showExistingTasks( );
-        Scanner input = new Scanner(System.in);
-        int index = 0;
-        index = Integer.parseInt(input.nextLine( ));
-
-        if (index > 0 && index <= taskList1.size( )) {
-            taskList1.get(index - 1).setIsTaskDone(true);
-        } else
-            out.println("No such Task Exists");
-
-        out.println("Task marked as done!");
-        showExistingTasks( );
-    }
-
-    public void deleteTask() {
-        out.println("Choose a task to delete: \n");
-        showExistingTasks( );
-        Scanner input = new Scanner(System.in);
-        int index = 0;
-        index = Integer.parseInt(input.nextLine( ));
-
-        if (index > 0 && index <= taskList1.size( )) {
-            taskList1.remove(index - 1);
-        } else
-            out.println("No such Task to delete \n");
-
-        out.println("Task has been deleted Successfully");
-
-        showExistingTasks( );
-    }
-
-    private void showExistingTasks() {
+    public void showExistingTasks() {
         out.println("Task No\t  Task title\tDue date\t Project name\tTask status");
         for (int i = 0; i < taskList1.size( ); i++)
             out.println("\t" + (i + 1) + "\t\t" + taskList1.get(i).toString( ));
