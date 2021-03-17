@@ -1,4 +1,4 @@
-package ToDoListIP;
+package todoipsda;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,15 +7,15 @@ import java.util.Scanner;
 public class Main {
     ToDoList toDoList;
     String fileName = "src/main/resources/todolist.txt";
-      ArrayList<Task> taskList;
-      FileHandler fileHandler;
-      UpdateTask updateTask;
+    ArrayList<Task> taskList;
+    FileHandler fileHandler;
+    UpdateTaskUI updateTaskUI;
 
-    public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler, UpdateTask updateTask) {
+    public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler, UpdateTaskUI updateTaskUI) {
         this.taskList = taskList;
         this.toDoList = toDoList;
         this.fileHandler = fileHandler;
-        this.updateTask = updateTask;
+        this.updateTaskUI = updateTaskUI;
     }
 
     public void displayMainMenu() throws IOException {
@@ -25,18 +25,16 @@ public class Main {
             System.out.println("------------------------------------------------------------");
             System.out.println("          Hello! Welcome to your To do List      ");
             System.out.println("------------------------------------------------------------");
-            System.out.println("You have  " + (taskList.size( ) - numberOfTasksDone)  +  " task to do and  " +
-                    numberOfTasksDone + "  tasks are done!");
+            System.out.println("You have  " + (taskList.size( ) - numberOfTasksDone) + " task to do and  " +
+                               numberOfTasksDone + "  tasks are done!");
             System.out.println("Pick an option to perform: ");
             System.out.println("     1) Display Task List (By project name or by due date)\n");
             System.out.println("     2) Add New Task\n");
             System.out.println("     3) Edit Task (update, mark task as done, delete\n");
             System.out.println("     4) Save and Exit\n");
             System.out.println("------------------------------------------------------------");
-
             Scanner input = new Scanner(System.in);
             choice = input.nextInt( );
-
             switch (choice) {
                 case 1:
                     toDoList.displayTask( );
@@ -45,30 +43,28 @@ public class Main {
                     toDoList.addTask( );
                     break;
                 case 3:
-                    updateTask.editTask( );
+                    updateTaskUI.editTask( );
                     break;
                 case 4:
-                    //toDoList.saveTaskList(fileName);
                     fileHandler.saveTaskList(fileName, taskList);
                     System.out.println("Good Bye!");
                     break;
-
                 default:
                     System.out.println("Not a valid input!");
                     break;
-
             }
         }
     }
+
     public static void main(String[] args) throws IOException {
-        String fileName = "src/main/resources/todolist.txt";  //todo refactor this to have it once
+        String fileName = "src/main/resources/todolist.txt";
         ArrayList<Task> taskList = new ArrayList<>( );
         ToDoList toDoList = new ToDoList(taskList);
-        FileHandler fileHandler = new FileHandler();
+        FileHandler fileHandler = new FileHandler( );
         taskList = fileHandler.load(fileName);
         toDoList.setListItems(taskList);
-        UpdateTask updateTask = new UpdateTask(taskList, toDoList);
-        Main main = new Main(taskList, toDoList, fileHandler, updateTask);
+        UpdateTaskUI updateTaskUI = new UpdateTaskUI(taskList, toDoList);
+        Main main = new Main(taskList, toDoList, fileHandler, updateTaskUI);
         main.displayMainMenu( );
     }
 }

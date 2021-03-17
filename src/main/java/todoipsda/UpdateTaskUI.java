@@ -1,24 +1,24 @@
-package ToDoListIP;
+package todoipsda;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
-public class UpdateTask {
+public class UpdateTaskUI {
     ArrayList<Task> taskListUI;
     ToDoList toDoListUI;
 
-    public UpdateTask(ArrayList<Task> tList, ToDoList tdList) {
+    public UpdateTaskUI(ArrayList<Task> tList, ToDoList tdList) {
         toDoListUI = tdList;
         taskListUI = tList;
     }
-
+    /**
+     * This method   helps to edit task by receiving user input to choose different choices to edi
+     */
     public void editTask() { // in ui
         int choice = 0;
-
         while (choice != 4) {
             out.println("************************************* ");
             out.println("Please pick your option to edit: \n");
@@ -57,7 +57,6 @@ public class UpdateTask {
         Scanner input = new Scanner(System.in);
         int index = 0;
         index = Integer.parseInt(input.nextLine( ));
-
         if (index > 0 && index <= taskListUI.size( )) {
             out.println("Enter the title:\n");
             String title = input.nextLine( );
@@ -91,14 +90,19 @@ public class UpdateTask {
         Scanner input = new Scanner(System.in);
         int index = 0;
         index = Integer.parseInt(input.nextLine( ));
+        boolean isMarkAsDone = markTaskAsDoneByIndex(index);
+        toDoListUI.showExistingTasks( );
+    }
 
+    public boolean markTaskAsDoneByIndex(int index) {
         if (index > 0 && index <= taskListUI.size( )) {
             taskListUI.get(index - 1).setIsTaskDone(true);
-        } else
+            out.println("Task marked as done!");
+            return true;
+        } else {
             out.println("No such Task Exists");
-
-        out.println("Task marked as done!");
-        toDoListUI.showExistingTasks( );
+            return false;
+        }
     }
 
     public void deleteTask() {
@@ -107,15 +111,16 @@ public class UpdateTask {
         Scanner input = new Scanner(System.in);
         int index = 0;
         index = Integer.parseInt(input.nextLine( ));
+        deleteTaskByIndex(index);
+        out.println("Task has been deleted Successfully");
+        toDoListUI.showExistingTasks( );
+    }
 
+    public void deleteTaskByIndex(int index) {
         if (index > 0 && index <= taskListUI.size( )) {
             taskListUI.remove(index - 1);
         } else
             out.println("No such Task to delete \n");
-
-        out.println("Task has been deleted Successfully");
-
-        toDoListUI.showExistingTasks( );
     }
 }
 
