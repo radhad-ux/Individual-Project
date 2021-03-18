@@ -3,7 +3,6 @@ package todoipsda;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import static java.lang.System.out;
 
 public class ToDoList {
@@ -108,7 +107,7 @@ public class ToDoList {
      * This method helps to edit a task(Update,Mark as done, delete)
      */
     public void showExistingTasks() {
-        out.println("Task No\t  Task title\tDue date\t Project name\tTask status");
+        out.println("Task No\t\t Task title\t\tDue date\t Project name\t\tTask status");
         for (int i = 0; i < taskList1.size( ); i++)
             out.println("\t" + (i + 1) + "\t\t" + taskList1.get(i).toString( ));
     }
