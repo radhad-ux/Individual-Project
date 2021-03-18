@@ -12,7 +12,7 @@ In the second option it allows to display the tasks by sorting due date:
 
 3. Add a new Task
    ![Add1](ScreenShots/Add1.png)
-   ![Add2](ScreenShots/Add1.png)
+   ![Add2](ScreenShots/Add2.png)
    
 4. Edit a Task
    ![EditTask1](ScreenShots/EditTask1.png)
