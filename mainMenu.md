@@ -23,3 +23,4 @@ In the second option it allows to display the tasks by sorting due date:
    
 5. Save and exit the application
    ![Save](ScreenShots/Save.png)
+

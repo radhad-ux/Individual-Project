@@ -25,7 +25,7 @@ task has been completed and which tasks are yet to be done.
 
 # Class Diagram
 
-![ClassDiagramToDoList](ScreenShots/ClassDiagramToDoList.png)
+![ClassDiagramToDoList](ScreenShot/ClassDiagramToDoList.png)
 
 
 **#User Manual**
