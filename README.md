@@ -22,7 +22,7 @@ task has been completed and which tasks are yet to be done.
 >> All the changes are saved in the list if user wishes to do so.
 
 # Tools
-IntelliJ IDEA,  VS code  Eclipse
+IntelliJ IDEA
 
 # Class Diagram
 
