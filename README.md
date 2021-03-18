@@ -46,7 +46,7 @@ Once compiled and launched the program is straightforward to use. The text UI wi
 you through different steps in the project.
 
 The exact overview of how the ToDo List Application has been designed and works can be viewed in the following
-[Link](src/main/java/mainMenu.md).
+[Link](mainMenu.md)
 
 
 
