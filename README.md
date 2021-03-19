@@ -24,7 +24,6 @@ to know which task has been completed and which tasks are yet to be done.
                           
 >>> Saving all the changes in the list if user wishes to do so.
 
-
 #Installation and  User Manual
 
 This provides a brief introduction on **software installation** and **how to use the project.**
@@ -51,10 +50,10 @@ Tested the Application using the JUnit Platform which serves as a foundation for
 frameworks on the JVM. Tested few major functionalities like Adding, deleting, marking and getting 
 the number of tasks done. Also tested few functionalities on the Task list class.
 
-# Class Diagram
+# Class and Activity Diagram 
 
 ![classdiagram](ScreenShots/classdiagram.png)
-
+![activitydiagram](ScreenShots/activitydiagram.jpeg)
 
 
 
