@@ -1,4 +1,4 @@
-#Title
+#**Title**
 Individual-Project - ToDoList - SDA:9
 
 # A brief overview
@@ -24,7 +24,7 @@ to know which task has been completed and which tasks are yet to be done.
                           
 >>> Saving all the changes in the list if user wishes to do so.
 
-#Installation and  User Manual
+**#Installation and  User Manual**
 
 This provides a brief introduction on **software installation** and **how to use the project.**
 
