@@ -5,20 +5,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import static java.lang.System.out;
 
+/**
+ * This class represents ToDoList which contains the Arraylist of task objects
+ * It adds new Todo task details to ArrayList
+ */
+
 public class ToDoList {
-    ArrayList<Task> taskList1;
+    ArrayList<Task> taskList1; // An array list of Task object
     String title;
     LocalDate dueDate;
     String projectName;
+
+    /**
+     * Constructor to create an object of ToDo list
+     *
+     * @param taskList a list of tasks
+     */
 
     public ToDoList(ArrayList<Task> taskList) {
         this.taskList1 = taskList;
     }
 
-    // Method to return the number of tasks done
     public void setListItems(ArrayList<Task> taskList) {
         this.taskList1 = taskList;
     }
+
+    /**
+     * returns the number of tasks done
+     */
 
     public int getNumberOfTasksDone() {
         int count = 0;
@@ -30,7 +44,8 @@ public class ToDoList {
     }
 
     /**
-     * Method to display task by projectName or Due date
+     * A method to display the contents of Array list
+     * sorted by project name and due date
      */
     public void displayTask() {
         int option = 0;
@@ -59,9 +74,6 @@ public class ToDoList {
         }
     }
 
-    /**
-     * Display task by Project Name
-     */
     public void displayTaskByProjectName() { // todo ask nour about stay here (change it easier to test)
         out.println("Task title\t\tDue date\t\tProject name\t\tTask status");
         taskList1.stream( )
@@ -69,17 +81,16 @@ public class ToDoList {
                 .forEach(out::println);
     }
 
-    /**
-     * Display task by Due Date
-     */
     public void displayTaskByDueDate() {
         out.println("Task title\t\tDue date\t\t Project name\t\t Task status");
         taskList1.stream( )
                 .sorted((t1, t2) -> t1.getDueDate( ).compareTo(t2.getDueDate( )))
                 .forEach(out::println);
     }
+
     /**
-     * This method adds a new task to the taskList using the User input
+     * This method helps to get the information from the user to add new task
+     * user inputs: title, due date, project name
      */
     public void addTask() {
         out.println("Enter the task title to be added");
@@ -91,7 +102,7 @@ public class ToDoList {
         out.println("The name of the project:\n ");
         projectName = input.nextLine( );
         addNewTask( );
-        showExistingTasks( );
+        showExistingTasks( );// Display's the existing task list
     }
 
     public void addNewTask() {
@@ -103,8 +114,10 @@ public class ToDoList {
     public int getSize() {
         return taskList1.size( );
     }
+
     /**
-     * This method helps to edit a task(Update,Mark as done, delete)
+     * Display's the task list starting from index 1, providing an easier approach for the user to choose the
+     * operation from the main menu
      */
     public void showExistingTasks() {
         out.println("Task No\t\t Task title\t\tDue date\t Project name\t\tTask status");

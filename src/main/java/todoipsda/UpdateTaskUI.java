@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
+/**
+ * This class represents ToDoList which contains the Arraylist of task objects
+ * It helps to edit the existing tasks in the Array list
+ */
 public class UpdateTaskUI {
     ArrayList<Task> taskListUI;
     ToDoList toDoListUI;
@@ -14,10 +18,12 @@ public class UpdateTaskUI {
         toDoListUI = tdList;
         taskListUI = tList;
     }
+
     /**
-     * This method   helps to edit task by receiving user input to choose different choices to edi
+     * This method helps to edit task by receiving user input, who can choose among different choices
+     * to edit the existing tasks
      */
-    public void editTask() { // in ui
+    public void editTask() {
         int choice = 0;
         while (choice != 4) {
             out.println("************************************* ");
@@ -49,7 +55,7 @@ public class UpdateTaskUI {
     }
 
     /**
-     * This method update's an existing tasks details
+     * It tasks user input such as title, due date, project name, status and  update an existing task of user's choice
      */
     public void updateTask() {
         out.println("Choose a task no to update\n");
@@ -84,6 +90,9 @@ public class UpdateTaskUI {
         toDoListUI.showExistingTasks( );
     }
 
+    /**
+     * A method to select a particular task from Arraylist to update the status of the task as completed
+     */
     public void markTaskAsDone() {
         out.println("Choose a task you want to mark as done\n ");
         toDoListUI.showExistingTasks( );
@@ -94,6 +103,9 @@ public class UpdateTaskUI {
         toDoListUI.showExistingTasks( );
     }
 
+    /**
+     * A method to validate the task number and to mark as task completed
+     */
     public boolean markTaskAsDoneByIndex(int index) {
         if (index > 0 && index <= taskListUI.size( )) {
             taskListUI.get(index - 1).setIsTaskDone(true);
@@ -105,6 +117,9 @@ public class UpdateTaskUI {
         }
     }
 
+    /**
+     * A method to get the user input for deleting the task at a specified index
+     */
     public void deleteTask() {
         out.println("Choose a task to delete: \n");
         toDoListUI.showExistingTasks( );
