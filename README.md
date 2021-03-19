@@ -23,11 +23,6 @@ task has been completed and which tasks are yet to be done.
 >>> Saving all the changes in the list if user wishes to do so.
 
 
-# Class Diagram
-
-![ClassDiagramToDoList](ScreenShots/ClassDiagramToDoList.png)
-
-
 **#User Manual**
 
 This provides a brief introduction on **how to use the project.**
@@ -47,6 +42,10 @@ you through different steps in the project.
 
 The exact overview of how the ToDo List Application has been designed and works can be viewed in the following
 [Link](mainMenu.md)
+
+# Class Diagram
+
+![classdiagram](ScreenShots/classdiagram.uml)
 
 
 
