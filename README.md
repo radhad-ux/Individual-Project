@@ -45,7 +45,7 @@ The exact overview of how the ToDo List Application has been designed and works 
 
 # Class Diagram
 
-![classdiagram](ScreenShots/classdiagram.uml)
+![classdiagram](ScreenShots/classdiagram.png)
 
 
 
