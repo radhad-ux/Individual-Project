@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**  This is the Main class of the project which provides an entry point to run the program
+/**
+ * This is the Main class of the project which provides an entry point to run the program
  * It also shows the welcome information of the main menu, the commands to execute the program
  * and takes the user input as options.
- * */
+ */
+
 public class Main {
     //An object of todo list to hold all tasks and their data
     ToDoList toDoList;
@@ -24,12 +26,14 @@ public class Main {
     // An object of the update task UI class to perform edit operations on a task
     UpdateTaskUI updateTaskUI;
 
-    /** A constructor of the main class that takes in initial parameters
-     * @param taskList a list of tasks
-     * @param toDoList a instance of ToDoList
-     * @param fileHandler a file to save and load data
+    /**
+     * A constructor of the main class that takes in initial parameters
+     *
+     * @param taskList     a list of tasks
+     * @param toDoList     a instance of ToDoList
+     * @param fileHandler  a file to save and load data
      * @param updateTaskUI a instance of edit task
-     * */
+     */
 
     public Main(ArrayList<Task> taskList, ToDoList toDoList, FileHandler fileHandler, UpdateTaskUI updateTaskUI) {
         this.taskList = taskList;
@@ -38,9 +42,10 @@ public class Main {
         this.updateTaskUI = updateTaskUI;
     }
 
-     /** A method which prints the welcome information of the Todo list application and allows
-      * the user to input the option to perform
-      * */
+    /**
+     * A method which prints the welcome information of the Todo list application and allows
+     * the user to input the option to perform
+     */
 
     public void displayMainMenu() throws IOException {
         int choice = 0;
@@ -50,7 +55,7 @@ public class Main {
             System.out.println("          Hello! Welcome to your To do List      ");
             System.out.println("------------------------------------------------------------");
             System.out.println("You have  " + (taskList.size( ) - numberOfTasksDone) + " task to do and  " +
-                                numberOfTasksDone + "  tasks are done!");
+                    numberOfTasksDone + "  tasks are done!");
             System.out.println("Pick an option to perform: ");
             System.out.println("     1) Display Task List (By project name or by due date)\n");
             System.out.println("     2) Add New Task\n");
@@ -80,9 +85,11 @@ public class Main {
         }
     }
 
-    /** main method to run the command line based ToDo List application
+    /**
+     * main method to run the command line based ToDo List application
+     *
      * @param args array of string holding command line parameters
-     * */
+     */
 
     public static void main(String[] args) throws IOException {
         String fileName = "src/main/resources/todolist.txt";
